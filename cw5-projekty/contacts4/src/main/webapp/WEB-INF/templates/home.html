@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>contacts4</title>
+</head>
+<body>
+<div id="header" th:include="page :: header"></div>
+<div id="content">
+    <h1>Witamy w serwisie contacts4!</h1>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Telephone</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${contacts.empty}">
+            <td colspan="4">Brak kontaktów</td>
+        </tr>
+        <tr th:each="contact : ${contacts}">
+            <td th:text="${contact.id}"></td>
+            <td th:text="${contact.firstName}"></td>
+            <td th:text="${contact.lastName}"></td>
+            <td th:text="${contact.email}"></td>
+            <td th:text="${contact.phone}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div id="footer" th:include="page :: footer"></div>
+</body>
+</html>
